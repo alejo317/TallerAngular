@@ -11,6 +11,9 @@ import { SerieService } from './serie.service';
 
 export class SerieComponent implements OnInit {
   series: Array<Serie> = [];
+  selectedSerie!: Serie;
+  selected = false;
+
   constructor(private serieService: SerieService) { }
 
   getSeries() {
@@ -28,6 +31,11 @@ calculateSeasonsAverage(series: Serie[]): number {
   let averageSeasons: number = totalSeasons/totalSeries;
 
   return averageSeasons;
+}
+
+onSelected(serie: Serie): void {
+  this.selected = true;
+  this.selectedSerie = serie;
 }
 
   ngOnInit() {
