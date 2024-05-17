@@ -19,6 +19,17 @@ export class SerieComponent implements OnInit {
     });
 }
 
+calculateSeasonsAverage(series: Serie[]): number {
+  let totalSeasons: number = 0;
+  let totalSeries: number = 0;
+  series.forEach((serie) => totalSeries = totalSeries + 1);
+  series.forEach((serie) => totalSeasons =totalSeasons + serie.seasons);
+
+  let averageSeasons: number = totalSeasons/totalSeries;
+
+  return averageSeasons;
+}
+
   ngOnInit() {
     this.getSeries();
   }
